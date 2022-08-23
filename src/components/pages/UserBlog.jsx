@@ -20,7 +20,7 @@ export default function UserBlog() {
         setUser(data[0].userData);
         setIsLoading(false);
       });
-  }, []);
+  }, [userId]);
 
   return isLoading ? (
     <Loading />
