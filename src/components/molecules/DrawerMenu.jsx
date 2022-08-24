@@ -6,17 +6,21 @@ import ListItem from "@mui/material/ListItem";
 // https://mui.com/pt/material-ui/react-drawer/
 // https://mui.com/pt/material-ui/react-list/
 
+import { LoggedUserContext } from "../../contexts";
+
 function Menu() {
+  const { loggedUser } = React.useContext(LoggedUserContext);
+
   return (
     <List>
       <ListItem>
         <Link to="/users">Usuários</Link>
       </ListItem>
       <ListItem>
-        <Link to="/users/1">Meus posts</Link>
+        <Link to={`/users/${loggedUser}`}>Meus posts</Link>
       </ListItem>
       <ListItem>
-        <Link to="/users/1/posts/new">Criar</Link>
+        <Link to={`/users/${loggedUser}/posts/new`}>Criar</Link>
       </ListItem>
     </List>
   );

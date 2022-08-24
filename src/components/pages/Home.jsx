@@ -1,13 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+import { LoggedUserContext } from "../../contexts";
+
 import { Loading } from "../organisms";
 import logo from "../../images/logo.svg";
 
 export default function Home() {
   const navigate = useNavigate();
 
-  const [loggedUser, setLoggedUser] = React.useState(null);
+  const { loggedUser, setLoggedUser } = React.useContext(LoggedUserContext);
   const [users, setUsers] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -35,7 +37,11 @@ export default function Home() {
       <div className="home__logo">
         <img src={logo} className="responsive" alt="" />
       </div>
-      <select className="home__select-users" onChange={handleUserChange}>
+      <select
+        className="home__select-users"
+        onChange={handleUserChange}
+        {...(loggedUser ? { defaultValue: loggedUser } : {})}
+      >
         <option value="">Selecionar usuário</option>
         {users
           .sort((a, b) => a.fn.localeCompare(b.fn))
