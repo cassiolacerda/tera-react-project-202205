@@ -1,9 +1,11 @@
 import React from "react";
+import CircularProgress from "@mui/material/CircularProgress";
+// https://mui.com/pt/material-ui/react-progress/
 
 export default function Loading() {
   return (
     <div className="center">
-      <h1>Loading...</h1>
+      <CircularProgress color="inherit" />
     </div>
   );
 }
