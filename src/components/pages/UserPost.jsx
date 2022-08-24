@@ -1,7 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Default from "../templates/Default";
 
+import { getFriendlyDate } from "../../helpers";
+
+import Default from "../templates/Default";
 import { Loading } from "../organisms";
 
 export default function UserPost() {
@@ -28,7 +30,7 @@ export default function UserPost() {
       <div className="user-post">
         <h2 className="user-post__post-title">{post.title}</h2>
         <div className="user-post__post-date">
-          Publicado em {post.createdAt} por
+          Publicado em {getFriendlyDate(post.createdAt)} por
           <img src={post.userData.avatar} className="avatar" alt="" />
           <strong> {`${post.userData.fn} ${post.userData.ln}`}</strong>
         </div>

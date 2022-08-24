@@ -1,5 +1,7 @@
 import React from "react";
 
+import { getFriendlyDate } from "../../helpers";
+
 import { PostListItem } from "./";
 
 export default function PostListWrapper(props) {
@@ -10,7 +12,7 @@ export default function PostListWrapper(props) {
           key={post.id}
           postId={post.id}
           title={post.title}
-          createdAt={post.createdAt}
+          createdAt={getFriendlyDate(post.createdAt)}
           image={post.image}
           userId={post.userId}
         />
